@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an uncommon error related to the specificity of CSS selectors:
+
+```css
+div {
+  color: blue;
+}
+
+.special-class div {
+  color: red;  /* This rule is expected to override the first one */
+}
+
+#some-id div {
+  color: green; /*This should ideally override the previous ones, but might not always do so correctly*/
+}
+
+#some-id.special-class div{
+  color: purple; /*This rule is expected to be the most specific and override previous ones */
+}
+```
+
+The error arises from the fact that the browser might have difficulty correctly handling the cascade (the order in which style rules are applied) if there are multiple IDs and classes applied to the same element.  Sometimes, the order might seem unpredictable depending on browser or engine implementation.
